@@ -1,0 +1,19 @@
+{
+  "name": "softphone_electron",
+  "version": "1.0.0",
+  "description": "softphone pour le cours de methgin",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.5",
+    "package.json": "^2.0.1"
+  },
+  "dependencies": {
+    "jssip": "^3.5.11"
+  }
+}
