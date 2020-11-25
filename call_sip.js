@@ -21,10 +21,19 @@ bouton_call.onclick = function(){
 
   var options = {
     'eventHandlers'    : eventHandlers,
-    'mediaConstraints' : { 'audio': true, 'video': true }
+    'mediaConstraints' : { 'audio': true, 'video': false }
   };
 
     var session = coolPhone.call('sip:9002@do01.adninformatique.com', options);
+
+    if (session) {
+      session.connection.addEventListener('addstream', (e) => {
+        var audio = document.createElement('audio');
+        audio.srcObject = e.stream;
+        audio.play();
+      });
+    }
+
     console.log(session);
 }
 
@@ -38,6 +47,8 @@ bouton_connect.onclick = function(){
 
   coolPhone = new JsSIP.UA(configuration);
 
+
+
   coolPhone.start();
 
   coolPhone.on('newMessage', function(e){ console.log(e); });
@@ -47,5 +58,5 @@ bouton_connect.onclick = function(){
 
 
 bouton_message.onclick = function(){
-  coolPhone.sendMessage('sip:9002@do01.adninformatique.com', 'woot');
+  coolPhone.sendMessage('sip:9001@do01.adninformatique.com', 'woot');
 }
