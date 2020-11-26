@@ -2,10 +2,51 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Télé-Mou</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <p>Télé-Mou</p>
+        <div>
+            <p>Bienvenue</p>
+            <a>Se connecter</a>
+        </div>
+    </header>
+
+    <section id="accueil">
+        <h1>BIENVENUE SUR<br>Télé-MOU</h1>
+        <button>Connexion</button>
+    </section>
+
+    <section id="connexion">
+        <form> 
+            <div>
+                <label for="identifiant">Identifiant</label>
+                <input required name="identifiant" id="identifiant" type="text" patern="[a-zA-ZÀ-ÿ]">
+            </div>
+            <div>
+                <label for="mdp">Mot de Passe</label>
+                <input required name="mdp" id="mdp" type="text">
+            </div>
+            <div>
+                <label for="adressseserv">Adresse serveur</label>
+                <input required name="adressseserv" id="adressseserv" type="text">
+            </div>
+            <div>
+                <label for="port">Port</label>
+                <input required name="port" id="port" type="text">
+            </div>
+
+        </form>
+    </section>
+
+
+
+
     <h1>Hello World!</h1>
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
