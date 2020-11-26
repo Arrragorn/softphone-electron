@@ -1,3 +1,4 @@
+/*GENERALE*/
 body{
     margin:0;
     
@@ -6,8 +7,23 @@ body{
 section{
     background:lightgrey;
     margin:20px;
+    display:none;
+
+}
+.section-active{
+    display:block;
+
 }
 
+
+
+/*HEADER*/
+
+/*ACCUEIL*/
+
+/*CONNEXION*/
+
+/*DIAL*/
 #clavier{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -57,3 +73,6 @@ section{
     grid-area:hashtag;
 }
 
+/*CALL*/
+
+/*INCOMMING CALL*/
