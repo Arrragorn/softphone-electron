@@ -24,7 +24,7 @@ bouton_call.onclick = function(){
     'mediaConstraints' : { 'audio': true, 'video': false }
   };
 
-    var session = coolPhone.call('sip:9002@do01.adninformatique.com', options);
+    var session = coolPhone.call('sip:9001@do01.adninformatique.com', options);
 
     if (session) {
       session.connection.addEventListener('addstream', (e) => {
