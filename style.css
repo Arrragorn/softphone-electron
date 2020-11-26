@@ -1,0 +1,59 @@
+body{
+    margin:0;
+    
+    
+}
+section{
+    background:lightgrey;
+    margin:20px;
+}
+
+#clavier{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "num1 num2 num3"
+    "num4 num5 num6"
+    "num7 num8 num9"
+    "etoile num0 hashtag";
+}
+
+
+.num1{
+    grid-area:num1;
+}
+.num2{
+    grid-area:num2;
+}
+.num3{
+    grid-area:num3;
+}
+.num4{
+    grid-area:num4;
+}
+.num5{
+    grid-area:num5;
+}
+.num6{
+    grid-area:num6;
+}
+.num7{
+    grid-area:num7;
+}
+.num8{
+    grid-area:num8;
+}
+.num9{
+    grid-area:num9;
+}
+.numEtoile{
+    grid-area:etoile;
+}
+.num0{
+    grid-area:num0;
+}
+.numHashtag{
+    grid-area:hashtag;
+}
+

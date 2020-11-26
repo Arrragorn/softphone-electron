@@ -2,14 +2,147 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Télé-Mou</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <header>
+        <p>Télé-Mou</p>
+        <div>
+            <p>Bienvenue</p>
+            <a>Se connecter</a>
+        </div>
+    </header>
+
+    <section id="accueil">
+        <h1>BIENVENUE SUR<br>Télé-MOU</h1>
+        <button>Connexion</button>
+    </section>
+
+    <section id="connexion">
+        <div class="zonetel">
+            <div>
+                <h3>Télé-mou</h3>
+                <h2>Bienvenue</h2>
+            </div>
+            <form> 
+                <div>
+                    <label for="identifiant">Identifiant</label>
+                    <input required name="identifiant" id="identifiant" type="text" patern="[a-zA-ZÀ-ÿ]">
+                </div>
+                <div>
+                    <label for="mdp">Mot de Passe</label>
+                    <input required name="mdp" id="mdp" type="text">
+                </div>
+                <div>
+                    <label for="adressseServ">Adresse serveur</label>
+                    <input required name="adressseServ" id="adressseServ" type="text">
+                </div>
+                <div>
+                    <label for="port">Port</label>
+                    <input required name="port" id="port" type="text">
+                </div>
+                <div>
+                    <button name="connexion" class="suivant" type="submit">Connexion
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <section id="dial">
+        <div class=zonetel>
+            <div><input type="text" id="numeroRentrer" placeholder="Taper le numéro"/><img src=""></div>
+            <div id="clavier">
+                <div class="num1">
+                    <p class="numero">1</p>
+                    <p class="sousTexte"></p>
+                </div>
+                <div class="num2">
+                    <p class="numero">2</p>
+                    <p class="sousTexte">ABC</p>
+                </div>
+                <div class="num3">
+                    <p class="numero">3</p>
+                    <p class="sousTexte">DEF</p>
+                </div>
+                <div class="num4">
+                    <p class="numero">4</p>
+                    <p class="sousTexte">GHI</p>
+                </div>
+                <div class="num5">
+                    <p class="numero">5</p>
+                    <p class="sousTexte">JKL</p>
+                </div>
+                <div class="num6">
+                    <p class="numero">6</p>
+                    <p class="sousTexte">MNO</p>
+                </div>
+                <div class="num7">
+                    <p class="numero">7</p>
+                    <p class="sousTexte">PQRS</p>
+                </div>
+                <div class="num8">
+                    <p class="numero">8</p>
+                    <p class="sousTexte">TUV</p>
+                </div>
+                <div class="num9">
+                    <p class="numero">9</p>
+                    <p class="sousTexte">WXYZ</p>
+                </div>
+                <div class="numetoile">
+                    <p class="numero"></p>
+                    <p class="sousTexte">*</p>
+                </div>
+                <div class="num0">
+                    <p class="numero">0</p>
+                    <p class="sousTexte">+</p>
+                </div>
+                <div class="numhashtag">
+                    <p class="numero"></p>
+                    <p class="sousTexte">#</p>
+                </div>
+            </div>
+            <button id="appel"><img src="">Appel</button>
+        </div>
+    </section>
+
+    <section id="call">
+        <div class=zonetel>
+            <div><p id="numeroRentrer">0389575452</p><img src=""></div>
+            <div id="clavierappel">
+                <div>
+                    <img src="">User
+                    <p>Appel en cours</p>
+                    <p>03 89 57 54 52</p>
+                </div>
+                <button>Rediriger</button>
+                <button id="raccrocher"><img src="">Raccrocher</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="incomingcall">
+        <div>
+            <img src="">
+            <div>
+                <p>0389575452</p>
+                <p>Appel en cours</p>
+            </div>
+        </div>
+        <div>
+            <img src="">Decrocher
+            <img src="">Raccrocher
+        </div>
+
+    </section>
+
+
     <button id="bouton_connect" type="button">connect</button>
     <button id="bouton_message" type="button">send message</button>
     <button id="bouton_call" type="button">call</button>

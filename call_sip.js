@@ -56,7 +56,6 @@ bouton_connect.onclick = function(){
 }
 
 
-
 bouton_message.onclick = function(){
   coolPhone.sendMessage('sip:9001@do01.adninformatique.com', 'woot');
 }
