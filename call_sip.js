@@ -1,9 +1,23 @@
 
 const JsSIP = require('jssip')
 var  coolPhone
+var session
+
+document.getElementById('bouton_call').addEventListener('click', appel);
+document.getElementById('bouton_connect').addEventListener('click', connect);
+document.getElementById('bouton_racrocher').addEventListener('click', racroche);
+document.getElementById('bouton_repondre').addEventListener('click', repondre);
 
 
-bouton_call.onclick = function(){
+
+function racroche(){
+
+if(session){
+  session.terminate()
+  }
+}
+
+function appel(){
   var eventHandlers = {
     'progress': function(e) {
       console.log('call is in progress');
@@ -26,9 +40,12 @@ bouton_call.onclick = function(){
 
   var num = input_num_tele.value
 
-    var session = coolPhone.call('sip:' + num +'@do01.adninformatique.com', options);
+    session = coolPhone.call('sip:' + num +'@do01.adninformatique.com', options);
 
     if (session) {
+      bouton_racrocher.onclick = function(){
+        session
+      }
       session.connection.addEventListener('addstream', (e) => {
         var audio = document.createElement('audio');
         audio.srcObject = e.stream;
@@ -39,7 +56,11 @@ bouton_call.onclick = function(){
     console.log(session);
 }
 
-bouton_connect.onclick = function(){
+function repondre(){
+
+}
+
+ function connect(){
   var socket = new JsSIP.WebSocketInterface('wss://do01.adninformatique.com:8089/ws');
     var configuration = {
     sockets  : [ socket ],
@@ -48,16 +69,6 @@ bouton_connect.onclick = function(){
   };
 
   coolPhone = new JsSIP.UA(configuration);
-
-
-
   coolPhone.start();
 
-  coolPhone.on('newMessage', function(e){ console.log(e); });
-
-}
-
-
-bouton_message.onclick = function(){
-  coolPhone.sendMessage('sip:9001@do01.adninformatique.com', 'woot');
 }
