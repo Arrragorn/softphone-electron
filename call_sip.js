@@ -56,6 +56,10 @@ function redirige(){
 
 }
 
+function repondre(){
+
+}
+
  function connect(){
   var socket = new JsSIP.WebSocketInterface('wss://do01.adninformatique.com:8089/ws');
     var configuration = {
