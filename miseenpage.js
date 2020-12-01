@@ -42,7 +42,7 @@ function incomingcall(){
 /*GESTION BOUTONS FENETRE INCOMING CALL*/
 
 document.querySelector('#button_decrocher2').addEventListener('click',function(){
-    document.querySelector(section).classList.remove("section-active");
+    document.querySelectorAll(section).classList.remove("section-active");
     document.querySelector('#call').classList.add("section-active");
 });
 
