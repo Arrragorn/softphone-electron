@@ -36,7 +36,7 @@ document.querySelector('#button_rediriger').addEventListener('click',function(){
 /*GESTION APPARITION FENETRE INCOMING CALL*/
 
 function incomingcall(){
-    document.querySelector('#incomingcall').classList.add("section-active");    
+    document.querySelector('#incomingcall').classList.add("section-active");
 }
 
 /*GESTION BOUTONS FENETRE INCOMING CALL*/
@@ -49,5 +49,3 @@ document.querySelector('#button_decrocher2').addEventListener('click',function()
 document.querySelector('#button_raccrocher2').addEventListener('click',function(){
     document.querySelector('#incomingcall').classList.remove("section-active");
 });
-
-

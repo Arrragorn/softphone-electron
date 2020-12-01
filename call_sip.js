@@ -3,10 +3,11 @@ const JsSIP = require('jssip')
 var  coolPhone
 var session
 
-document.getElementById('bouton_call').addEventListener('click', appel);
-document.getElementById('bouton_connect').addEventListener('click', connect);
-document.getElementById('bouton_racrocher').addEventListener('click', racroche);
-document.getElementById('bouton_repondre').addEventListener('click', repondre);
+document.getElementById('button_appel').addEventListener('click', appel);
+document.getElementById('button_connexion_form').addEventListener('click', connect);
+document.getElementById('button_raccrocher').addEventListener('click', racroche);
+//document.getElementById('bouton_repondre').addEventListener('click', repondre);
+document.getElementById('button_rediriger').addEventListener('click', redirige);
 
 
 
@@ -38,25 +39,20 @@ function appel(){
     'mediaConstraints' : { 'audio': true, 'video': false }
   };
 
-  var num = input_num_tele.value
+  var num = document.getElementById('numeroRentrer').value
 
-    session = coolPhone.call('sip:' + num +'@do01.adninformatique.com', options);
-
-    if (session) {
-      bouton_racrocher.onclick = function(){
-        session
-      }
-      session.connection.addEventListener('addstream', (e) => {
-        var audio = document.createElement('audio');
-        audio.srcObject = e.stream;
-        audio.play();
-      });
-    }
-
-    console.log(session);
+    coolPhone.call('sip:' + '9002' +'@do01.adninformatique.com', options);
 }
 
 function repondre(){
+if(session)
+{
+  session.answer()
+}
+}
+
+function redirige(){
+
 
 }
 
@@ -69,6 +65,22 @@ function repondre(){
   };
 
   coolPhone = new JsSIP.UA(configuration);
+  coolPhone.on('newRTCSession',(data) => {
+    session = data.session
+    console.log(session);
+    session.connection.addEventListener('addstream', (e) => {
+      var audio = document.createElement('audio');
+      audio.srcObject = e.stream;
+      audio.play();
+    });
+    if(data.originator === "local"){
+      //pop fenetre pour appel en cours
+    }else {
+      //pop fenetre pour la reception d'appel
+    }
+
+
+  });
   coolPhone.start();
 
 }
