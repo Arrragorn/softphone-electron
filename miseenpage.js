@@ -58,11 +58,7 @@ if(document.querySelector('#').classList.contains('section-active')){
     
         var numero = this.value;
         console.log(numero);
-        switch (numero) {
-          case '1':
-            console.log('Oranges are $0.59 a pound.');
-            break;  
-        }
+       
     });
     
 };
