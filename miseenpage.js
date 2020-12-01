@@ -51,5 +51,19 @@ document.querySelector('#button_raccrocher2').addEventListener('click',function(
 });
 
 
+if(document.querySelector('#').classList.contains('section-active')){
+    console.log("lel");
 
+    document.querySelectorAll('.num').addEventListener('click',function(){
+    
+        var numero = this.value;
+        console.log(numero);
+        switch (numero) {
+          case '1':
+            console.log('Oranges are $0.59 a pound.');
+            break;  
+        }
+    });
+    
+};
 
