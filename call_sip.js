@@ -16,7 +16,7 @@ function racroche(){
 
 if(session){
   session.terminate()
-  endingcall()
+  fenetre_raccrocher2()
   }
 }
 
