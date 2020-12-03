@@ -57,7 +57,7 @@ $('#button_raccrocher2').click(function(){
 
 /*GERER CONNEXION*/
 
-function connecter(){
+function headerconnecter(){
 
     $('.codeco').html('<span class="sedeconnecter"> -Se déconnecter</span>')
     $('.sedeconnecter').click(function(){
@@ -66,7 +66,7 @@ function connecter(){
     });
 
 }
-function deconnecter(){
+function headerdeconnecter(){
 
     $('.codeco').html('<span class="seconnecter"> -Se connecter</span>')
     $('.seconnecter').click(function(){
@@ -80,7 +80,6 @@ function deconnecter(){
 
 /*GESTION DU DIAL*/
 
-    
     $('.num').click(function(){
     
         var numero =$(this).children(0).html();
