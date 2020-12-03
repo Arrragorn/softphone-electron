@@ -36,7 +36,9 @@ $('#button_rediriger').click(function(){
 /*GESTION APPARITION FENETRE INCOMING CALL*/
 
 function incomingcall(){
+
     $('#incommingcall').addClass('section-active');
+
 }
 
 /*GESTION BOUTONS FENETRE INCOMING CALL*/
@@ -50,6 +52,7 @@ $('#button_appel2').click(function(){
 $('#button_raccrocher2').click(function(){
     $('#incomingcall').classList.remove("section-active");
 });
+
 
 
 /*GERER CONNEXION*/
@@ -94,3 +97,7 @@ function deconnecter(){
         
  
 
+
+function endingcall(){
+    document.querySelector('#incomingcall').classList.remove("section-active");
+}
