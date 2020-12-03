@@ -1,9 +1,26 @@
 
 const JsSIP = require('jssip')
 var  coolPhone
+var session
+
+document.getElementById('button_appel').addEventListener('click', appel);
+document.getElementById('button_connexion_form').addEventListener('click', connect);
+document.getElementById('button_raccrocher').addEventListener('click', racroche);
+//document.getElementById('bouton_repondre').addEventListener('click', repondre);
+document.getElementById('button_rediriger').addEventListener('click', redirige);
+document.getElementById('button_decrocher2').addEventListener('click', repondre);
+document.getElementById('button_raccrocher2').addEventListener('click', racroche);
 
 
-bouton_call.onclick = function(){
+function racroche(){
+
+if(session){
+  session.terminate()
+  endingcall()
+  }
+}
+
+function appel(){
   var eventHandlers = {
     'progress': function(e) {
       console.log('call is in progress');
@@ -24,20 +41,32 @@ bouton_call.onclick = function(){
     'mediaConstraints' : { 'audio': true, 'video': false }
   };
 
-    var session = coolPhone.call('sip:9001@do01.adninformatique.com', options);
+  var num = document.getElementById('numeroRentrer').value
 
-    if (session) {
-      session.connection.addEventListener('addstream', (e) => {
-        var audio = document.createElement('audio');
-        audio.srcObject = e.stream;
-        audio.play();
-      });
-    }
-
-    console.log(session);
+  console.log(num);
+    coolPhone.call('sip:' + String(num) +'@do01.adninformatique.com', options);
 }
 
-bouton_connect.onclick = function(){
+function repondre(){
+if(session)
+{
+  session.answer()
+  if(session.connection)
+  {
+    session.connection.addEventListener('addstream',ajoute_stream);
+  }
+}
+
+
+}
+
+function redirige(){
+
+
+}
+
+
+ function connect(){
   var socket = new JsSIP.WebSocketInterface('wss://do01.adninformatique.com:8089/ws');
     var configuration = {
     sockets  : [ socket ],
@@ -45,17 +74,26 @@ bouton_connect.onclick = function(){
     password : 'adminTest'
   };
 
+
   coolPhone = new JsSIP.UA(configuration);
 
 
-
+  coolPhone.on('newRTCSession',(data) => {
+    session = data.session
+    console.log("newRTCSession");
+    if(session.direction === "incoming"){
+      console.log("incoming");
+      incomingcall()
+    } else {
+      session.connection.addEventListener('addstream',ajoute_stream);
+    }
+  });
   coolPhone.start();
-
-  coolPhone.on('newMessage', function(e){ console.log(e); });
 
 }
 
-
-bouton_message.onclick = function(){
-  coolPhone.sendMessage('sip:9001@do01.adninformatique.com', 'woot');
+function ajoute_stream(e){
+  var audio = document.createElement('audio');
+  audio.srcObject = e.stream;
+  audio.play();
 }
