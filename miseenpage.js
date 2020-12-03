@@ -49,3 +49,7 @@ document.querySelector('#button_decrocher2').addEventListener('click',function()
 document.querySelector('#button_raccrocher2').addEventListener('click',function(){
     document.querySelector('#incomingcall').classList.remove("section-active");
 });
+
+function endingcall(){
+    document.querySelector('#incomingcall').classList.remove("section-active");
+}
