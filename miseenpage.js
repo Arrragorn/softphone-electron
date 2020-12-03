@@ -41,7 +41,7 @@ function incomingcall(){
 
 /*GESTION BOUTONS FENETRE INCOMING CALL*/
 
-document.querySelector('#button_decrocher2').addEventListener('click',function(){
+document.querySelector('#button_appel2').addEventListener('click',function(){
     document.querySelectorAll(section).classList.remove("section-active");
     document.querySelector('#call').classList.add("section-active");
 });
