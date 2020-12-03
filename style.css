@@ -15,13 +15,72 @@ section{
 
 }
 
+.fond{
+    width:50vw;
+    position: absolute;
+    bottom:0px;
+    right:0px;
+}
+
+
+section{
+    position:absolute;
+    left:10vw;
+    top:30vh;
+    background: #F2F2F2;
+    border-radius: 10px;
+    padding:10px;
+   
+}
+
 
 
 /*HEADER*/
 
+header{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    background-color: #F2F2F2;
+    padding:10px;
+}
+
+header>h1{
+    font-family: 'Bebas Neue';
+    font-size:3em;
+    font-weight:400;
+    color:#38364C;
+    padding-left:10px;
+    margin:0;
+}
+
+header>h1>span{
+    color:#00B0FF;
+
+}
+
+header>p{
+    font-family: 'Bebas Neue';
+    font-size:24px;
+    color:#38364C;
+    padding-right:10px;
+}
+
+header>p>span{
+    font-family:'Roboto';
+    font-size:13pt;
+    color:#00B0FF;
+
+}
+
 /*ACCUEIL*/
+#accueil>h1
 
 /*CONNEXION*/
+h3{
+    font-family:'Bebas Neue';
+    color:white;
+}
 
 /*DIAL*/
 #clavier{

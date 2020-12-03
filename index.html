@@ -12,18 +12,17 @@
 </head>
 <body>
     <header>
-        <p>Télé-Mou</p>
-        <div>
-            <p>Bienvenue</p>
-        </div>
+        <h1>Télé<span>-</span>Mou</h1>
+        <p class="codeco">Bienvenue<span class="seconnecter"> -Se connecter</span></p>
+      
     </header>
 
-    <section id="accueil" class="section-active">
-        <h1>BIENVENUE SUR<br>Télé-MOU</h1>
+    <section id="accueil" class="partie section-active">
+        <h2>BIENVENUE SUR<br>Télé<span>-</span>MOU</h2>
         <button id="button_connexion">Connexion</button>
     </section>
 
-    <section id="connexion" class="">
+    <section id="connexion" class="partie ">
         <div class="zonetel">
             <div>
                 <h3>Télé-mou</h3>
@@ -54,15 +53,15 @@
         </div>
     </section>
 
-    <section id="dial" class="">
+    <section id="dial" class="partie ">
         <div class=zonetel>
             <div><input type="text" id="numeroRentrer" placeholder="Taper le numéro"/><img src=""></div>
             <div id="clavier">
-                <div class="num num1" value="1">
+                <div class="num num1">
                     <p class="numero" >1</p>
                     <p class="sousTexte"></p>
                 </div>
-                <div class="num num2" value="2">
+                <div class="num num2">
                     <p class="numero">2</p>
                     <p class="sousTexte">ABC</p>
                 </div>
@@ -111,7 +110,7 @@
         </div>
     </section>
 
-    <section id="call" class="">
+    <section id="call" class="partie ">
         <div class=zonetel>
             <div><p id="numeroRentrer">0389575452</p><img src=""></div>
             <div id="clavierappel">
@@ -126,7 +125,7 @@
         </div>
     </section>
 
-    <section id="incomingcall" class="">
+    <section id="incomingcall" class="partie ">
         <div>
             <img src="">
             <div>
@@ -140,16 +139,12 @@
         </div>
 
     </section>
+    <img class="fond" src="fond.svg">
 
-
-    <button id="bouton_connect" type="button">connect</button>
-    <button id="bouton_message" type="button">send message</button>
-    <button id="bouton_call" type="button">call</button>
+    <script src="jquery.js"></script>
     <script type="text/javascript" src="miseenpage.js"></script>
     <script type="text/javascript" src="call_sip.js"></script>
-
-
-
+    
 </body>
 
 </html>
