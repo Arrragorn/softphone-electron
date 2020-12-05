@@ -1,15 +1,20 @@
 /*GENERALE*/
 body{
-    margin:0;
-    
-    
+    margin:0;   
 }
-section{
-    background:lightgrey;
-    margin:20px;
-    display:none;
 
+section{
+    display:none;
+    background:lightgrey;
+    position:absolute;
+    left:10vw;
+    top:25vh;
+    background: #F2F2F2;
+    border-radius: 10px;
+    padding:10px;
+   
 }
+
 .section-active{
     display:block;
 
@@ -22,17 +27,16 @@ section{
     right:0px;
 }
 
-
-section{
-    position:absolute;
-    left:10vw;
-    top:30vh;
-    background: #F2F2F2;
-    border-radius: 10px;
-    padding:10px;
-   
+#filtre{
+    display:none;
+    position: absolute;
+    top:0;
+    left:0;
+    height:100vh;
+    width:100vw;
+    background-color:rgba(196, 196, 196, 0.2);
+    z-index:3;
 }
-
 
 
 /*HEADER*/
@@ -64,27 +68,152 @@ header>p{
     font-size:24px;
     color:#38364C;
     padding-right:10px;
+    
 }
 
 header>p>span{
     font-family:'Roboto';
     font-size:13pt;
     color:#00B0FF;
+    vertical-align:middle;
 
 }
 
 /*ACCUEIL*/
-#accueil>h1
 
-/*CONNEXION*/
-h3{
-    font-family:'Bebas Neue';
-    color:white;
+#accueil{
+    text-align:center;
+    background-color: transparent;
 }
 
+#accueil>h2{
+    font-family: 'Bebas Neue';
+    font-weight:400;
+    font-size:50pt;
+    color:#38364C;
+    margin-bottom:20px;
+    
+}
+#accueil>h2>span{
+    color:#00B0FF;
+}
+
+#button_connexion{
+
+    font-family: 'Roboto';
+    font-weight:500;
+    font-size:15pt;
+    color:white;
+    background-color: #00B0FF;
+    padding:15px;
+    padding-left:30px;
+    padding-right:30px;
+    border-radius:10px;
+    border:none;
+}
+
+#button_connexion>svg{
+    padding-left:10px;
+}
+
+
+
+/*CONNEXION*/
+
+#connexion{
+    padding:50px;
+    padding-top:40px;
+}
+#connexion>div{
+    
+    text-align:center;
+    border-bottom:white solid 3px;
+    margin-bottom:25px;
+}
+#connexion>div>h3{
+    font-family:'Bebas Neue';
+    color:white;
+    font-weight: 200;
+    font-size:15pt;
+    margin:0;
+    padding:0;
+
+}
+
+#connexion>div>h2{
+   
+    font-family: 'Bebas Neue';
+    font-weight:400;
+    font-size:30pt;
+    color:#00B0FF;
+    margin:0;
+    margin-top:-10px;  
+
+}
+
+#connexion>form>div{
+    display:flex;
+    flex-direction: column;
+}
+
+#connexion>form>div>label{
+    font-family: 'Roboto';
+    font-weight:500;
+    font-size:12pt;
+    color:#38364C;
+    margin-left:10px;
+    z-index:2;
+    
+}
+
+#connexion>form>div>input{
+    padding:15px;
+    width:250px;
+    border:none;
+    border-radius:5px;
+    margin-top:-7px;
+    margin-bottom:15px;
+    z-index:1;
+
+}
+
+#button_connexion_form{
+    font-family: 'Roboto';
+    font-weight:500;
+    font-size:12pt;
+    color:white;
+    background-color: #00B0FF;
+    padding:15px;
+    border-radius:25px;
+    border:none;
+    width:200px;
+    margin-top:15px;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+#connexion>form>div>input{
+    font-family: 'Roboto';
+    font-size:12pt;
+    color:#00B0FF;
+}
+
+#button_connexion_form>svg{
+    padding-left:10px;
+}
+
+
+
 /*DIAL*/
+#dial{
+    padding:0;
+    padding-top:25px;
+    padding-bottom:25px;
+}
 #clavier{
     display:grid;
+    grid-gap:2px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas:
@@ -93,7 +222,6 @@ h3{
     "num7 num8 num9"
     "etoile num0 hashtag";
 }
-
 
 .num1{
     grid-area:num1;
@@ -132,6 +260,181 @@ h3{
     grid-area:hashtag;
 }
 
+.zoneinput{
+    margin-bottom:20px;
+    background-color:white;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+
+}
+.zoneinput>svg{
+    vertical-align:middle;
+    margin-right:10px;
+    
+}
+
+#dial>div>input{
+    background-color:white;
+    border:none;
+    padding:20px;
+    width:80%;
+    font-family: 'Roboto';
+    font-size:12pt;
+    font-weight:700;
+    color:#38364C;
+}
+
+::placeholder { 
+    font-family: 'Roboto';
+    font-size:12pt;
+    font-weight:500;
+    color:#a7a7a7;
+  }
+
+#clavier>.num{
+    background-color:white;
+    text-align:center;
+    padding:10px;
+    padding-left:40px;
+    padding-right:40px;
+}
+
+.numero{
+    font-family: 'Roboto';
+    font-size:17pt;
+    font-weight:700;
+    color:#38364C;
+    margin:0;
+}
+  
+.sousTexte{
+    font-family: 'Roboto';
+    font-size:12pt;
+    font-weight:400;
+    color:#00B0FF;
+    margin:0;
+
+}
+
+#button_appel{
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:-80px;
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.2));
+}
 /*CALL*/
 
-/*INCOMMING CALL*/
+#call{
+    text-align:center;
+    padding:0;
+}
+
+.infoappel{
+    margin-top:50px;
+    background-color:white;
+    padding:30px;
+    padding-left:100px;
+    padding-right:100px;
+}
+
+
+.infoappel>p{
+    font-family: 'Roboto';
+    font-size:15pt;
+    font-weight:700;
+    color:#38364C;
+    margin-bottom:10px;;
+}
+
+
+.infoappel>p:nth-child(3){
+    font-size:12pt;
+    font-weight:300;
+    margin:0;
+}
+
+#button_rediriger{
+    margin-top:25px;
+    margin-bottom:50px;
+}
+#button_rediriger>p{
+    font-family: 'Roboto';
+    font-size:9pt;
+    font-weight:400;
+    color:#838383;
+}
+#button_raccrocher>svg{
+    margin-bottom:-45px;
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.2));
+    
+}
+
+/*INCOMING CALL*/
+#incomingcall{
+    background-color:white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 41px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%); 
+    z-index:50;
+
+}
+
+.infoincoming{
+    display:flex;
+    margin:30px;
+    margin-top:20px;
+    margin-bottom:10px;
+    align-items:center;
+    
+}
+
+.infoappelincoming{
+    text-align:center;
+    margin-left:70px;
+    margin-right:25px;
+    
+
+}
+
+.infoappelincoming>p{
+    
+    margin:0;
+    font-family: 'Roboto';
+    font-size:14pt;
+    font-weight:600;
+    color:#38364C;
+}
+
+.infoappelincoming>p:nth-child(2){
+    font-weight:350;
+
+}
+
+.buttonincoming{
+    display:flex;
+    justify-content: center;
+}
+.buttonincoming>div{
+    
+    margin:35px;
+    margin-top:0;
+    margin-bottom:0;
+    
+}
+.buttonincoming>div>svg{
+    width:70px;
+}
+
+
+#button_appel2{
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.2));
+
+}
+#button_raccrocher2{
+    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.2));
+
+}

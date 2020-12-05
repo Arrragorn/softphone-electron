@@ -48,10 +48,12 @@ function fenetre_incomingcall(){
 function fenetre_call2(){
     $('section').removeClass('section-active');
     $('#call').addClass('section-active');
+    $("#filtre").css("display", "block");
 };
 
 function fenetre_raccrocher2(){
     $('#incomingcall').classList.remove("section-active");
+    $("#filtre").css("display", "none");
 };
 
 /*GERER CONNEXION*/
