@@ -1,9 +1,12 @@
-/*ACCUEIL -> CONNEXION */
-function fenetre_connexion(){
-    $('#accueil').removeClass('section-active');
-    $('#connexion').addClass('section-active');
 
-};
+
+/*ACCUEIL -> CONNEXION */
+$(document).ready(function () {
+  $('#button_connexion').click(function (){
+      $('#accueil').removeClass('section-active');
+      $('#connexion').addClass('section-active');
+  });
+});
 
 /*CONNEXION -> DIAL  */
 function fenetre_dial(){
@@ -37,9 +40,7 @@ function fenetre_rediriger(){
 /*GESTION APPARITION FENETRE INCOMING CALL*/
 
 function fenetre_incomingcall(){
-
-    $('#incommingcall').addClass('section-active');
-
+    $('#incomingcall').addClass('section-active');
 };
 
 /*GESTION BOUTONS FENETRE INCOMING CALL*/
@@ -74,25 +75,21 @@ function headerdeconnecter(){
     });
 
 };
- 
+
 
 
 /*GESTION DU DIAL*/
 
     $('.num').click(function(){
-    
+
         var numero =$(this).children(0).html();
-        
+
         if($('#numeroRentrer').val() == "") {
             var anciennum="";
         }
-        else { 
-            var anciennum =String($('#numeroRentrer').val()); 
-        } 
-       
+        else {
+            var anciennum =String($('#numeroRentrer').val());
+        }
+
         $('#numeroRentrer').val(anciennum+numero);
     });
-        
- 
-
-

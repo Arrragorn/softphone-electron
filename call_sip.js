@@ -8,8 +8,9 @@ document.getElementById('button_connexion_form').addEventListener('click', conne
 document.getElementById('button_raccrocher').addEventListener('click', racroche);
 //document.getElementById('bouton_repondre').addEventListener('click', repondre);
 document.getElementById('button_rediriger').addEventListener('click', redirige);
-document.getElementById('button_decrocher2').addEventListener('click', repondre);
+document.getElementById('button_appel2').addEventListener('click', repondre);
 document.getElementById('button_raccrocher2').addEventListener('click', racroche);
+document.getElementById('button_raccrocher').addEventListener('click', racroche);
 
 
 function racroche(){
@@ -53,6 +54,7 @@ if(session)
   session.answer()
   if(session.connection)
   {
+    fenetre_call2();
     session.connection.addEventListener('addstream',ajoute_stream);
   }
 }
@@ -83,12 +85,15 @@ function redirige(){
     console.log("newRTCSession");
     if(session.direction === "incoming"){
       console.log("incoming");
-      incomingcall()
+      fenetre_incomingcall();
     } else {
       session.connection.addEventListener('addstream',ajoute_stream);
     }
   });
   coolPhone.start();
+  fenetre_dial();
+
+
 
 }
 
