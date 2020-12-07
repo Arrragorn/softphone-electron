@@ -1,12 +1,10 @@
 
 
 /*ACCUEIL -> CONNEXION */
-$(document).ready(function () {
-  $('#button_connexion').click(function (){
+  function fenetre_conexion(){
       $('#accueil').removeClass('section-active');
       $('#connexion').addClass('section-active');
-  });
-});
+  };
 
 /*CONNEXION -> DIAL  */
 function fenetre_dial(){
