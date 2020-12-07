@@ -45,13 +45,13 @@ function fenetre_incomingcall(){
 
 /*GESTION BOUTONS FENETRE INCOMING CALL*/
 
-function fenetre_call2(){
+function fenetre_call_accepted(){
     $('section').removeClass('section-active');
     $('#call').addClass('section-active');
-    $("#filtre").css("display", "block");
+    //$("#filtre").css("display", "block");
 };
 
-function fenetre_raccrocher2(){
+function fenetre_call_refused(){
     $('#incomingcall').classList.remove("section-active");
     $("#filtre").css("display", "none");
 };

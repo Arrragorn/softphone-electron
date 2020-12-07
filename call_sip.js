@@ -5,40 +5,26 @@ var session
 
 document.getElementById('button_appel').addEventListener('click', appel);
 document.getElementById('button_connexion_form').addEventListener('click', connect);
-document.getElementById('button_raccrocher').addEventListener('click', racroche);
-//document.getElementById('bouton_repondre').addEventListener('click', repondre);
+
 document.getElementById('button_rediriger').addEventListener('click', redirige);
-document.getElementById('button_appel2').addEventListener('click', repondre);
-document.getElementById('button_raccrocher2').addEventListener('click', racroche);
+document.getElementById('button_repondre').addEventListener('click', repondre);
+document.getElementById('button_refuser_appel').addEventListener('click', refuser_appel);
 document.getElementById('button_raccrocher').addEventListener('click', racroche);
 
 
 function racroche(){
-
-if(session){
-  session.terminate()
-  fenetre_raccrocher2()
-  }
+  session.terminate();
+}
+function refuser_appel(){
+  session.terminate();
+  fenetre_call_refused();
 }
 
+
 function appel(){
-  var eventHandlers = {
-    'progress': function(e) {
-      console.log('call is in progress');
-    },
-    'failed': function(e) {
-      console.log('call failed with cause: '+ e.data.cause);
-    },
-    'ended': function(e) {
-      console.log('call ended with cause: '+ e.data.cause);
-    },
-    'confirmed': function(e) {
-      console.log('call confirmed');
-    }
-  };
 
   var options = {
-    'eventHandlers'    : eventHandlers,
+  //  'eventHandlers'    : eventHandlers,
     'mediaConstraints' : { 'audio': true, 'video': false }
   };
 
@@ -49,22 +35,12 @@ function appel(){
 }
 
 function repondre(){
-if(session)
-{
-  session.answer()
-  if(session.connection)
-  {
-    fenetre_call2();
+    session.answer();
     session.connection.addEventListener('addstream',ajoute_stream);
-  }
-}
-
-
+    fenetre_call_accepted();
 }
 
 function redirige(){
-
-
 }
 
 
@@ -78,26 +54,38 @@ function redirige(){
 
 
   coolPhone = new JsSIP.UA(configuration);
-
-
   coolPhone.on('newRTCSession',(data) => {
     session = data.session
     console.log("newRTCSession");
     if(session.direction === "incoming"){
+
       console.log("incoming");
       fenetre_incomingcall();
     } else {
       session.connection.addEventListener('addstream',ajoute_stream);
+      fenetre_call();
     }
+    session.on('ended',(sessionData) => {
+      console.log("ended");
+      fenetre_raccrocher();
+    });
+
   });
+
+  coolPhone.on('registered',(data) => {
+
+    headerconnecter();
+  });
+  coolPhone.on('unregistered',(data) => {
+    headerdeconnecter();
+  });
+
   coolPhone.start();
   fenetre_dial();
-
-
-
 }
 
 function ajoute_stream(e){
+  console.log("nouveau stream");
   var audio = document.createElement('audio');
   audio.srcObject = e.stream;
   audio.play();
