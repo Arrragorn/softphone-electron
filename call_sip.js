@@ -51,11 +51,11 @@ fenetre_conexion();
 
 //seulement pour test, non fonctionnel
 function get_saved_mdp(){
-  return 'adminTest'
+  return '20032000'
 }
 
 function get_saved_identifiant(){
-  return 'antoineTest'
+  return 'evaTest'
 }
 
 function get_saved_adressseServ(){
