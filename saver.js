@@ -13,7 +13,7 @@ var password;
 var server;
 var port;
 
-function get_identifiant(){
+function get_saved_identifiant(){
 
 	storage.get('identifiant', function(error, data) {
 	  if (error) throw error;
@@ -24,7 +24,7 @@ function get_identifiant(){
 	});
 }
 
-function get_encrypted_password(){
+function get_saved_mdp(){
 
 	storage.get('encrypted_password', function(error, data) {
 	  if (error) throw error;
@@ -38,7 +38,7 @@ function get_encrypted_password(){
 	});
 }
 
-function get_server(){
+function get_saved_server(){
 
 	storage.get('server', function(error, data) {
 	  if (error) throw error;
@@ -49,7 +49,7 @@ function get_server(){
 	});
 }
 
-function get_port(){
+function get_saved_port(){
 	storage.get('port', function(error, data) {
 	  if (error) throw error;
  
@@ -61,7 +61,7 @@ function get_port(){
 
 function set_identifiant(identifiant){
 
-	storage.set('identifiant', { foo: 'bar' }, function(error) { //{ foo: 'bar' } est un json, mais je sais pas c'est quoi
+	storage.set('identifiant', { 'identifiant' : 'identifiant' }, function(error) { 
 	  if (error) throw error;
 	});
 }
@@ -70,20 +70,20 @@ function set_encrypted_password(password){
 
 	encrypted_password = encrypt(password);
 
-	storage.set('encrypted_password', { foo: 'bar' }, function(error) {
+	storage.set('encrypted_password', { 'MDP' : 'encrypted_password' }, function(error) {
 	  if (error) throw error;
 	});
 }
 
 function set_server(server){
 
-	storage.set('server', { foo: 'bar' }, function(error) { 
+	storage.set('server', { 'server': 'server' }, function(error) { 
 	  if (error) throw error;
 	});
 }
 
 function set_port(port){
-	storage.set('port', { foo: 'bar' }, function(error) {
+	storage.set('port', { 'port': 'port' }, function(error) {
 	  if (error) throw error;
 	});
 }
