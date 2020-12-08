@@ -18,6 +18,18 @@ document.getElementById('button_raccrocher').addEventListener('click', racroche)
 document.getElementById('button_connexion').addEventListener('click', quitter_acceuil);
 
 
+document.querySelector('.seconnecter').addEventListener('click', se_connecter);
+
+
+function se_connecter(){
+   fenetre_se_connecter();
+}
+
+function se_deconnecter(){
+  fenetre_se_deconnecter();
+  coolPhone.unregister();
+}
+
 window.addEventListener('load', (e)=>{
   document.getElementById('identifiant').value = get_saved_identifiant();
   document.getElementById('mdp').value = get_saved_mdp();
@@ -34,7 +46,6 @@ function refuser_appel(){
 
 function quitter_acceuil(){
 fenetre_conexion();
-
 }
 
 
@@ -66,7 +77,7 @@ function appel(){
   var num = document.getElementById('numeroRentrer').value
 
   console.log(num);
-    coolPhone.call('sip:' + String(num) +'@' + server, options);
+    coolPhone.call('sip:' + String(num) +'@' + server_val, options);
 }
 
 function repondre(){
@@ -87,14 +98,14 @@ port_val = document.getElementById('port').value
 server_val = document.getElementById('adressseServ').value
 
 if(identifiant_val == '' || mdp_val == '' || port_val == '' || server_val == ''){
-  //return;
+  return;
 }
 
-  var socket = new JsSIP.WebSocketInterface('wss://do01.adninformatique.com:8089/ws');
+  var socket = new JsSIP.WebSocketInterface('wss://'+ server_val +':' + port_val +'/ws');
     var configuration = {
     sockets  : [ socket ],
-    uri      : 'sip:antoineTest@do01.adninformatique.com',
-    password : 'adminTest'
+    uri      : 'sip:' + identifiant_val + '@' +server_val ,
+    password : mdp_val
   };
 
 
@@ -117,12 +128,15 @@ if(identifiant_val == '' || mdp_val == '' || port_val == '' || server_val == '')
 
   });
 
-  // coolPhone.on('registered',(data) => {
-  //   headerconnecter();
-  // });
-  // coolPhone.on('unregistered',(data) => {
-  //   headerdeconnecter();
-  // });
+  coolPhone.on('registered',(data) => {
+    headerconnecter();
+    document.querySelector('.sedeconnecter').addEventListener('click', se_deconnecter);
+
+  });
+  coolPhone.on('unregistered',(data) => {
+    headerdeconnecter();
+    document.querySelector('.seconnecter').addEventListener('click', se_connecter);
+  });
 
   coolPhone.start();
   fenetre_dial();

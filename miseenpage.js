@@ -58,27 +58,40 @@ function fenetre_call_refused(){
 
 function headerconnecter(){
 
-    $('.codeco').html('<span class="sedeconnecter"> -Se déconnecter</span>')
-    $('.sedeconnecter').click(function(){
-        $('section').removeClass('section-active');
-        $('#accueil').addClass('section-active');
-    });
-
+    $('.codeco').html('Bienvenue <span class="sedeconnecter"> -Se déconnecter</span>')
 }
 
-function headerdeconnecter(){
+function fenetre_se_connecter(){
 
-    $('.codeco').html('<span class="seconnecter"> -Se connecter</span>')
-    $('.seconnecter').click(function(){
-           $('section').removeClass('section-active');
-        $('#connexion').addClass('section-active');
-    });
 
+    $('section').removeClass('section-active');
+ $('#connexion').addClass('section-active');
 };
 
+function headerdeconnecter(){
+    $('.codeco').html('Bienvenue <span class="seconnecter"> -Se connecter</span>')
+};
 
+function fenetre_se_deconnecter(){
+  $('section').removeClass('section-active');
+  $('#accueil').addClass('section-active');
+};
 
 /*GESTION DU DIAL*/
+
+$('.suppr').click(function(){
+
+
+
+    if($('#numeroRentrer').val() == "") {
+        var anciennum="";
+    }
+    else {
+        var anciennum =String($('#numeroRentrer').val());
+    }
+
+    $('#numeroRentrer').val(anciennum+numero);
+});
 
     $('.num').click(function(){
 
