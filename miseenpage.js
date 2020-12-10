@@ -69,6 +69,7 @@ document.querySelectorAll('.view-button').forEach((obj)=>{
 
 function fenetre_incomingcall(){
     $('#incomingcall').addClass('section-active');
+    $("#filtre").css("display", "block");
 };
 
 /*GESTION BOUTONS FENETRE INCOMING CALL*/
@@ -76,11 +77,11 @@ function fenetre_incomingcall(){
 function fenetre_call_accepted(){
     $('section').removeClass('section-active');
     $('#call').addClass('section-active');
-    //$("#filtre").css("display", "block");
+    $("#filtre").css("display", "none");
 };
 
 function fenetre_call_refused(){
-    $('#incomingcall').classList.remove("section-active");
+    $('#incomingcall').removeClass("section-active");
     $("#filtre").css("display", "none");
 };
 
@@ -111,7 +112,15 @@ function fenetre_se_deconnecter(){
 
 $('.suppr').click(function(){
 
+    var str = String($('#numeroRentrer').val());
+    var newStr = str.slice(0,-1);
+    $('#numeroRentrer').val(newStr);
 
+});
+
+$('.num').click(function(){
+
+    var numero =$(this).children(0).html();
 
     if($('#numeroRentrer').val() == "") {
         var anciennum="";
@@ -122,17 +131,3 @@ $('.suppr').click(function(){
 
     $('#numeroRentrer').val(anciennum+numero);
 });
-
-    $('.num').click(function(){
-
-        var numero =$(this).children(0).html();
-
-        if($('#numeroRentrer').val() == "") {
-            var anciennum="";
-        }
-        else {
-            var anciennum =String($('#numeroRentrer').val());
-        }
-
-        $('#numeroRentrer').val(anciennum+numero);
-    });

@@ -11,7 +11,7 @@ var port_val;
 document.getElementById('button_appel').addEventListener('click', appel);
 document.getElementById('button_connexion_form').addEventListener('click', connect);
 
-document.getElementById('button_rediriger').addEventListener('click', redirige);
+document.getElementById('button_rediriger').addEventListener('click', redirige_dial);
 document.getElementById('button_repondre').addEventListener('click', repondre);
 document.getElementById('button_refuser_appel').addEventListener('click', refuser_appel);
 document.getElementById('button_raccrocher').addEventListener('click', racroche);
@@ -37,7 +37,12 @@ window.addEventListener('load', (e)=>{
   document.getElementById('port').value = get_saved_port()
 });
 function racroche(){
+  //l'evenement ended ne se declanche pas si l'appel est en progres
+  if(session.isInProgress()){
+    fenetre_raccrocher();
+  }
   session.terminate();
+
 }
 function refuser_appel(){
   session.terminate();
@@ -45,7 +50,7 @@ function refuser_appel(){
 }
 
 function quitter_acceuil(){
-fenetre_conexion();
+  fenetre_conexion();
 }
 
 
@@ -86,9 +91,26 @@ function repondre(){
     fenetre_call_accepted();
 }
 
-function redirige(){
+function redirige_dial(){
+  fenetre_raccrocher()
+  document.getElementById('button_appel').removeEventListener('click', appel);
+  document.getElementById('button_appel').addEventListener('click', redirige);
+  session.on('ended',(sessionData) => {
+    document.getElementById('button_appel').removeEventListener('click', redirige);
+    document.getElementById('button_appel').addEventListener('click', appel);
+    console.log("ended");
+  });
 }
 
+
+function redirige() {
+
+  var num = document.getElementById('numeroRentrer').value
+
+  console.log('redirection vers ' + String(num));
+  session.refer('sip:' + String(num) +'@' + server_val);
+  session.terminate()
+}
 
  function connect(){
 
@@ -114,9 +136,12 @@ if(identifiant_val == '' || mdp_val == '' || port_val == '' || server_val == '')
     session = data.session
     console.log("newRTCSession");
     if(session.direction === "incoming"){
-
       console.log("incoming");
       fenetre_incomingcall();
+      session.on('failed', (sessionData) => {
+        console.log('appel reffusé');
+        fenetre_call_refused();
+      });
     } else {
       session.connection.addEventListener('addstream',ajoute_stream);
       fenetre_call();

@@ -65,7 +65,7 @@
 
     <section id="dial" class="">
         <div class="zoneinput">
-            <input type="text" id="numeroRentrer" placeholder="Taper le numéro" />
+            <input type="text" maxlength="25" id="numeroRentrer" placeholder="Taper le numéro" />
             <svg class="suppr" width="33" height="25" viewBox="0 0 33 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M26.1035 17.513L21.2051 12.5L26.1035 7.48698L24.1699 5.53385L19.2715 10.5469L14.3086 5.53385L12.375 7.48698L17.3379 12.5L12.375 17.513L14.3086 19.4661L19.2715 14.4531L24.1699 19.4661L26.1035 17.513ZM30.2285 0C30.959 0 31.6035 0.282118 32.1621 0.846354C32.7207 1.41059 33 2.06163 33 2.79948V22.2005C33 22.9384 32.7207 23.5894 32.1621 24.1536C31.6035 24.7179 30.959 25 30.2285 25H9.60352C8.74414 25 8.01367 24.5877 7.41211 23.763L0 12.5L7.41211 1.23698C8.01367 0.412326 8.74414 0 9.60352 0H30.2285Z" fill="#F2F2F2" />
             </svg>
@@ -199,11 +199,13 @@
     <img class="fond" src="fond.svg">
 
     <script>window.$ = window.jQuery = require('jquery');</script>
+
     <!-- <script src="jquery.js"></script> -->
 
     <script type="text/javascript" src="saver.js"></script>
     <script type="text/javascript" src="miseenpage.js"></script>
     <script type="text/javascript" src="call_sip.js"></script>
+
 
 </body>
 </html>
