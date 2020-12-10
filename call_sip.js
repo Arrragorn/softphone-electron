@@ -31,11 +31,23 @@ function se_deconnecter(){
 }
 
 window.addEventListener('load', (e)=>{
-  document.getElementById('identifiant').value = get_saved_identifiant();
-  document.getElementById('mdp').value = get_saved_mdp();
-  document.getElementById('adressseServ').value = get_saved_adressseServ();
-  document.getElementById('port').value = get_saved_port()
+  get_saved_identifiant(function(data) {
+      document.getElementById('identifiant').value = data;
+	})
+
+  get_saved_mdp(function(data) {
+  document.getElementById('mdp').value = data;
+    })
+
+  get_saved_adressseServ(function(data) {
+  document.getElementById('adressseServ').value = data;
+    })
+
+  get_saved_port(function(data) {
+  document.getElementById('port').value = data;
+    })
 });
+
 function racroche(){
   //l'evenement ended ne se declanche pas si l'appel est en progres
   if(session.isInProgress()){
@@ -55,7 +67,7 @@ function quitter_acceuil(){
 
 
 //seulement pour test, non fonctionnel
-function get_saved_mdp(){
+/*function get_saved_mdp(){
   return 'adminTest'
 }
 
@@ -69,7 +81,7 @@ function get_saved_adressseServ(){
 
 function get_saved_port(){
   return '8089'
-}
+}*/
 
 
 function appel(){
@@ -119,9 +131,16 @@ mdp_val = document.getElementById('mdp').value
 port_val = document.getElementById('port').value
 server_val = document.getElementById('adressseServ').value
 
+
+
 if(identifiant_val == '' || mdp_val == '' || port_val == '' || server_val == ''){
   return;
 }
+
+set_identifiant(identifiant_val)
+set_encrypted_password(mdp_val)
+set_server(server_val)
+set_port(port_val)
 
   var socket = new JsSIP.WebSocketInterface('wss://'+ server_val +':' + port_val +'/ws');
     var configuration = {
