@@ -47,7 +47,7 @@ function fenetre_incomingcall(){
 function fenetre_call_accepted(){
     $('section').removeClass('section-active');
     $('#call').addClass('section-active');
-    
+    $("#filtre").css("display", "none");
 };
 
 function fenetre_call_refused(){
@@ -82,10 +82,10 @@ function fenetre_se_deconnecter(){
 
 $('.suppr').click(function(){
 
-    var str = String($('#numeroRentrer').val()); 
+    var str = String($('#numeroRentrer').val());
     var newStr = str.slice(0,-1);
-    $('#numeroRentrer').val(newStr); 
-    
+    $('#numeroRentrer').val(newStr);
+
 });
 
 $('.num').click(function(){
