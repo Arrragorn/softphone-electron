@@ -35,6 +35,36 @@ function fenetre_rediriger(){
 };
 
 
+/*GESTION AFFICHAGE MOT DE PASSE*/
+const changePasswordView = obj => {
+    let el = obj.previousElementSibling;
+    let type = el.getAttribute("type");
+    switch (type) {
+        case "password" :
+            el.setAttribute("type", "text");
+            break;
+        case "text" :
+            el.setAttribute("type", "password");
+            break;
+    }
+}
+
+document.querySelectorAll('.view-button').forEach((obj)=>{
+    obj.addEventListener('mousedown',()=>{
+        changePasswordView(obj);
+    });
+    obj.addEventListener('mouseup',()=>{
+        changePasswordView(obj);
+    });
+    obj.addEventListener('touchstart',()=>{
+        changePasswordView(obj);
+    }, { passive: true } );
+    obj.addEventListener('touchend',()=>{
+        changePasswordView(obj);
+    }, { passive: true } );
+
+});
+
 /*GESTION APPARITION FENETRE INCOMING CALL*/
 
 function fenetre_incomingcall(){

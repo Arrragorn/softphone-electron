@@ -177,6 +177,32 @@ header>p>span{
 
 }
 
+
+.boitemdp>input{
+    padding:15px;
+    padding-top:20px;
+    width:250px;
+    border:none;
+    border-radius:5px;
+    margin-top:-7px;
+    margin-bottom:15px;
+    z-index:1;
+}
+
+.boitemdp>button{
+    background-color:transparent;
+    vertical-align: middle;
+    margin-left:-25px;
+    margin-right:-25px;
+    width:50px;
+    border:none;
+    z-index:2;
+}
+
+
+
+
+
 #button_connexion_form{
     font-family: 'Roboto';
     font-weight:500;
@@ -202,6 +228,8 @@ header>p>span{
 #button_connexion_form>svg{
     padding-left:10px;
 }
+
+
 
 
 

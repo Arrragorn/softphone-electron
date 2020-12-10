@@ -18,7 +18,7 @@
 
     </header>
 
-    <section id="accueil" class="section-active">
+    <section id="accueil" class="">
         <h2>BIENVENUE SUR<br>Télé<span>-</span>MOU</h2>
         <button id="button_connexion">
             Connexion<svg width="30" height="15" viewBox="0 0 39 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@
         </button>
     </section>
 
-    <section id="connexion" class="">
+    <section id="connexion" class="section-active">
         <div>
             <h3>Télé-mou</h3>
             <h2>Bienvenue</h2>
@@ -40,7 +40,10 @@
             </div>
             <div>
                 <label for="mdp">Mot de Passe</label>
-                <input required name="mdp" id="mdp" type="password">
+                <div class="boitemdp">
+                    <input required name="mdp" id="mdp" type="password">
+                    <button type="button" name="réveler mot de passe" class="view-button"><img alt="icone oeil mot de passe" src="eye.svg"></button>
+                </div>
             </div>
             <div>
                 <label for="adressseServ">Adresse serveur</label>
