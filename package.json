@@ -21,6 +21,7 @@
     "package.json": "^2.0.1"
   },
   "dependencies": {
+    "crypto-js": "^4.0.0",
     "electron-json-storage": "^4.3.0",
     "electron-squirrel-startup": "^1.0.0",
     "jquery": "^3.5.1",

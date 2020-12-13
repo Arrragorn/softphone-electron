@@ -179,6 +179,7 @@ header>p>span{
 
 
 .boitemdp>input{
+    color:#00B0FF;
     padding:15px;
     padding-top:20px;
     width:250px;
@@ -198,9 +199,6 @@ header>p>span{
     border:none;
     z-index:2;
 }
-
-
-
 
 
 #button_connexion_form{

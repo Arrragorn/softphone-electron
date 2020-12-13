@@ -1,8 +1,8 @@
-const defaultDataPath = storage.getDefaultDataPath()
-const os = require('os');
 const storage = require('electron-json-storage');
- 
-storage.setDataPath(os.tmpdir());
+const app = require('electron').remote.app;
+const CryptoJS = require("crypto-js");
+
+storage.setDataPath(app.getPath('userData'));
 
 const dataPath = storage.getDataPath();
 console.log(dataPath);
@@ -13,55 +13,45 @@ var password;
 var server;
 var port;
 
-function get_saved_identifiant(){
+
+function get_saved_identifiant(callback){
 
 	storage.get('identifiant', function(error, data) {
 	  if (error) throw error;
- 
-	  identifiant = data;
 	  console.log(data);
-	  return identifiant
+      callback (data.identifiant_saved);
 	});
 }
 
-function get_saved_mdp(){
+function get_saved_mdp(callback){
 
 	storage.get('encrypted_password', function(error, data) {
 	  if (error) throw error;
- 
-	  encrypted_password = data;
-
-	  password = desencypt(encrypted_password);
-
-	  console.log(data);
-	  return password;
+	  console.log(data.MDP);
+	  var motte = desencypt(data.MDP)
+	  console.log(motte);
+	  callback (motte);
 	});
 }
 
-function get_saved_server(){
+function get_saved_adressseServ(callback){
 
 	storage.get('server', function(error, data) {
 	  if (error) throw error;
- 
-	  server = data;
-	  console.log(data);
-	  return server;
+	  callback (data.addr_server)
 	});
 }
 
-function get_saved_port(){
+function get_saved_port(callback){
 	storage.get('port', function(error, data) {
 	  if (error) throw error;
- 
-	  port = data;
-	  console.log(data);
-	  return port
+	  callback (data.num_port)
 	});
 }
 
 function set_identifiant(identifiant){
 
-	storage.set('identifiant', { 'identifiant' : 'identifiant' }, function(error) { 
+	storage.set('identifiant', { 'identifiant_saved' : identifiant }, function(error) { 
 	  if (error) throw error;
 	});
 }
@@ -69,35 +59,35 @@ function set_identifiant(identifiant){
 function set_encrypted_password(password){
 
 	encrypted_password = encrypt(password);
-
-	storage.set('encrypted_password', { 'MDP' : 'encrypted_password' }, function(error) {
+	console.log(encrypted_password)
+	storage.set('encrypted_password', { 'MDP' : encrypted_password }, function(error) {
 	  if (error) throw error;
 	});
 }
 
 function set_server(server){
 
-	storage.set('server', { 'server': 'server' }, function(error) { 
+	storage.set('server', { 'addr_server': server }, function(error) { 
 	  if (error) throw error;
 	});
 }
 
 function set_port(port){
-	storage.set('port', { 'port': 'port' }, function(error) {
+	storage.set('port', { 'num_port': port }, function(error) {
 	  if (error) throw error;
 	});
 }
 
 function encrypt(password){
 
-	encrypted_password = CryptoJS.AES.encrypt(password, 'secret key 123');
+	encrypted_password = CryptoJS.AES.encrypt(password, 'secret key 123').toString();
 
 	return encrypted_password;
 }
 
 function desencypt(encrypted_password){
 
-	var bytes = CryptoJS.AES.decrypt(encrypted_password.toString(), 'secret key 123');
+	var bytes = CryptoJS.AES.decrypt(encrypted_password, 'secret key 123');
 	password = bytes.toString(CryptoJS.enc.Utf8);
 
 	return password;
