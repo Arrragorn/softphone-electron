@@ -136,7 +136,7 @@ $('.num').click(function(){
 /*GESTION CLAVIER DURANT APPEL*/
 
     /*RETOUR DIAL DEPUIS CALL*/
-    function fenetre_retour_clavier(){
+    function fenetre_retour_diall(){
         $('#call').removeClass('section-active');
         $('#dial').addClass('section-active');
 
@@ -144,7 +144,7 @@ $('.num').click(function(){
     };
 
     /*RETOUR CALL DEPUIS DIAL*/
-    function fenetre_retour_clavier(){
+    function fenetre_retour_call(){
         $('#call').removeClass('section-active');
         $('#dial').addClass('section-active');
 
