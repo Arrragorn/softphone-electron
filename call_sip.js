@@ -17,6 +17,7 @@ document.getElementById('button_refuser_appel').addEventListener('click', refuse
 document.getElementById('button_raccrocher').addEventListener('click', racroche);
 document.getElementById('button_connexion').addEventListener('click', quitter_acceuil);
 
+document.addEventListener('numPressed', num_to_DTMF)
 
 document.querySelector('.seconnecter').addEventListener('click', se_connecter);
 
@@ -25,11 +26,24 @@ document.getElementById('button_revenir_clavier').addEventListener('click',retou
 
 function retour_clavier(){
   fenetre_retour_diall()
-  
+  document.getElementById('button_appel').removeEventListener('click', appel)
+  document.getElementById('button_appel').addEventListener('click', retour_appel)
+
+}
+
+function num_to_DTMF(e){
+  if(session){
+    //num_entre = document.getElementById('numeroRentrer').value
+    console.log(e.detail);
+    session.sendDTMF(e.detail)
+  }
 }
 
 function retour_appel(){
-  fenetre_retour_call
+  fenetre_retour_call()
+  document.getElementById('button_appel').removeEventListener('click', retour_appel)
+  document.getElementById('button_appel').addEventListener('click', appel)
+
 }
 
 function se_connecter(){

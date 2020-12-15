@@ -118,6 +118,8 @@ $('.suppr').click(function(){
 
 });
 
+
+
 $('.num').click(function(){
 
     var numero =$(this).children(0).html();
@@ -130,6 +132,9 @@ $('.num').click(function(){
     }
 
     $('#numeroRentrer').val(anciennum+numero);
+
+    var even = new CustomEvent('numPressed',{detail: numero})
+    document.dispatchEvent(even);
 });
 
 
@@ -140,7 +145,7 @@ $('.num').click(function(){
         $('#call').removeClass('section-active');
         $('#dial').addClass('section-active');
 
-        $('#button_appel').html('<svg width="115" height="115" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_ddd)"><circle cx="57.5" cy="56.5" r="39.5" fill="#00B0FF"/><path d="M65.0188 54.625H42.5V58.375H65.0188V64L72.5 56.5L65.0188 49V54.625Z" fill="white"/></g></svg>');
+        $('#button_appel').html('<svg width="115" height="115" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z" fill="#00B0FF" /></svg>');
     };
 
     /*RETOUR CALL DEPUIS DIAL*/
