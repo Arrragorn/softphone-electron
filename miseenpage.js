@@ -145,7 +145,7 @@ $('.num').click(function(){
         $('#call').removeClass('section-active');
         $('#dial').addClass('section-active');
 
-        $('#button_appel').html('<svg width="115" height="115" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z" fill="#00B0FF" /></svg>');
+        $('#button_appel').html('<svg width="115" height="115" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="57.5" cy="56.5" r="39.5" fill="#00B0FF"/><path d="M76.4419 56.093L68.3488 48V54.0698H38V58.1163H68.3488V64.186L76.4419 56.093Z" fill="white"/></svg>');
     };
 
     /*RETOUR CALL DEPUIS DIAL*/
