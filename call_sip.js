@@ -57,19 +57,35 @@ function se_deconnecter(){
 
 window.addEventListener('load', (e)=>{
   get_saved_identifiant(function(data) {
+    if(data != undefined){
       document.getElementById('identifiant').value = data;
+    }else {
+      document.getElementById('identifiant').value = "";
+    }
 	})
 
   get_saved_mdp(function(data) {
-  document.getElementById('mdp').value = data;
+    if(data != undefined){
+      document.getElementById('mdp').value = data;
+    }else {
+      document.getElementById('mdp').value = "";
+    }
     })
 
   get_saved_adressseServ(function(data) {
-  document.getElementById('adressseServ').value = data;
+    if(data != undefined){
+      document.getElementById('adressseServ').value = data;
+    }else {
+      document.getElementById('adressseServ').value = "";
+    }
     })
 
   get_saved_port(function(data) {
-  document.getElementById('port').value = data;
+    if(data != undefined){
+      document.getElementById('port').value = data;
+    }else {
+      document.getElementById('port').value = "";
+    }
     })
 });
 
@@ -146,6 +162,9 @@ if(identifiant_val == '' || mdp_val == '' || port_val == '' || server_val == '')
   return;
 }
 
+
+
+
 set_identifiant(identifiant_val)
 set_encrypted_password(mdp_val)
 set_server(server_val)
@@ -179,6 +198,7 @@ set_port(port_val)
     }
     session.on('ended',(sessionData) => {
       console.log("ended");
+      document.getElementById('numeroRentrer').value = ""
       fenetre_raccrocher();
     });
 
