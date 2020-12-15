@@ -21,6 +21,7 @@ document.getElementById('button_connexion').addEventListener('click', quitter_ac
 document.querySelector('.seconnecter').addEventListener('click', se_connecter);
 
 
+
 function se_connecter(){
    fenetre_se_connecter();
 }
@@ -66,23 +67,6 @@ function quitter_acceuil(){
 }
 
 
-//seulement pour test, non fonctionnel
-/*function get_saved_mdp(){
-  return 'adminTest'
-}
-
-function get_saved_identifiant(){
-  return 'antoineTest'
-}
-
-function get_saved_adressseServ(){
-  return 'do01.adninformatique.com'
-}
-
-function get_saved_port(){
-  return '8089'
-}*/
-
 
 function appel(){
 
@@ -94,12 +78,13 @@ function appel(){
   var num = document.getElementById('numeroRentrer').value
 
   console.log(num);
-    coolPhone.call('sip:' + String(num) +'@' + server_val, options);
+  coolPhone.call('sip:' + String(num) +'@' + server_val, options);
 }
 
 function repondre(){
     session.answer();
     session.connection.addEventListener('addstream',ajoute_stream);
+    document.querySelector('.numeroTelAppel').innerHTML  = session.remote_identity._uri._user;
     fenetre_call_accepted();
 }
 
@@ -157,12 +142,15 @@ set_port(port_val)
     if(session.direction === "incoming"){
       console.log("incoming");
       fenetre_incomingcall();
+      console.log(session.remote_identity);
+      document.querySelector('.numeroTelIncoming').innerHTML  = session.remote_identity._uri._user;
       session.on('failed', (sessionData) => {
         console.log('appel reffusé');
         fenetre_call_refused();
       });
     } else {
       session.connection.addEventListener('addstream',ajoute_stream);
+      document.querySelector('.numeroTelAppel').innerHTML  = session.remote_identity._uri._user;
       fenetre_call();
     }
     session.on('ended',(sessionData) => {
