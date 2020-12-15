@@ -20,7 +20,17 @@ document.getElementById('button_connexion').addEventListener('click', quitter_ac
 
 document.querySelector('.seconnecter').addEventListener('click', se_connecter);
 
+document.getElementById('button_revenir_clavier').addEventListener('click',retour_clavier);
 
+
+function retour_clavier(){
+  fenetre_retour_diall()
+  
+}
+
+function retour_appel(){
+  fenetre_retour_call
+}
 
 function se_connecter(){
    fenetre_se_connecter();
